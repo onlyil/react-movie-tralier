@@ -1,0 +1,11 @@
+.home-container {
+  height: 100%;
+  display: flex;
+  .side-container {
+    flex: 0 0 200px;
+    height: 100%;
+  }
+  .main-container {
+    flex: 1;
+  }
+}

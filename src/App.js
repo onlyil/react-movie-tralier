@@ -1,30 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import logo from './assets/images/logo.svg';
-import './App.css';
+import Header from './components/header/header'
+import Footer from './components/footer/footer'
+import Home from './pages/front/home/home'
+import Movie from './pages/front/movie/movie'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const Front = () => (
+  <div className="front">
+    <Header />
+    <article className="main">
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/movie/:movieId" component={Movie}></Route>
+    </article>
+    <Footer />
+  </div>
+)
 
-export default App;
+const Admin = () => (
+  <div className="admin">
+    admin
+  </div>
+)
+
+const Main = () => (
+  <div className="app">
+    <Route path="/" exact component={Front} />
+    <Route path="/admin" component={Admin} />
+  </div>
+)
+
+const App = () => (
+  <Router>
+    <Main />
+  </Router>
+)
+
+export default App
