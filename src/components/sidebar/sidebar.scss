@@ -1,0 +1,13 @@
+.side-container {
+  .menu-item {
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    &:hover {
+      background: #ecf5ff;
+    }
+  }
+
+}
