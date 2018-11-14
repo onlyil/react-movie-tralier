@@ -1,3 +1,3 @@
-React exercise
+### Introduction
 
-With create-react-app, react-router 4
+A simple react exercise with create-react-app + react-router 4 + redux + react-redux.
