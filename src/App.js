@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store/store'
 
 import Header from './components/header/header'
 import Footer from './components/footer/footer'
@@ -10,8 +12,10 @@ const Front = () => (
   <div className="front">
     <Header />
     <article className="main">
-      <Route exact path="/" component={Home}></Route>
-      <Route path="/movie/:movieId" component={Movie}></Route>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/movie/:movieId" component={Movie}></Route>
+      </Switch>
     </article>
     <Footer />
   </div>
@@ -31,9 +35,11 @@ const Main = () => (
 )
 
 const App = () => (
-  <Router>
-    <Main />
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Main />
+    </Router>
+  </Provider>
 )
 
 export default App
