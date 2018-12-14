@@ -5,27 +5,28 @@ import './sidebar.scss'
 import { setActiveTab } from '../../store/active-tab/actions'
 
 
- class Sidebar extends Component {
+ export default class Sidebar extends Component {
   static propTypes = {
     menu: PropTypes.array.isRequired,
     activeIndex: PropTypes.number.isRequired,
+    changeMenu: PropTypes.func.isRequired,
   }
 
-  event = () => ({
-    activeTab: (index) => {
-      this.props.setActiveTab(index)
-    },
-  })
+  // event = () => ({
+  //   activeTab: index => {
+  //     this.props.setActiveTab(index)
+  //   },
+  // })
 
   render() {
-    const { menu, activeIndex } = this.props
+    const { menu, activeIndex, changeMenu } = this.props
     return (
       <div>
         {menu.map((item, index) =>
           <div
             className={`menu-item ${index === activeIndex ? 'active' : ''}`}
             key={index}
-            onClick={() => this.event().activeTab(index)}>
+            onClick={(e) => changeMenu(index)}>
             {item.title}
           </div>
         )}
@@ -34,11 +35,11 @@ import { setActiveTab } from '../../store/active-tab/actions'
   }
 }
 
-export default connect(
-  state => ({
-    activeIndex: state.activeTab,
-  }),
-  {
-    setActiveTab,
-  }
-)(Sidebar)
+// export default connect(
+//   state => ({
+//     activeIndex: state.activeTab,
+//   }),
+//   {
+//     setActiveTab,
+//   }
+// )(Sidebar)

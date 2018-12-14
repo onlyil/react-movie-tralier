@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store/store'
 
@@ -27,17 +27,13 @@ const Admin = () => (
   </div>
 )
 
-const Main = () => (
-  <div className="app">
-    <Route path="/" exact component={Front} />
-    <Route path="/admin" component={Admin} />
-  </div>
-)
-
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Main />
+      <div className="app">
+        <Route path="/" exact component={Front} />
+        <Route path="/admin" component={Admin} />
+      </div>
     </Router>
   </Provider>
 )

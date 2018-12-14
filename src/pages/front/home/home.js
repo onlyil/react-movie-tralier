@@ -16,23 +16,36 @@ export default class home extends Component {
       {
         title: '2016',
       },
-    ]
+    ],
+    activeIndex: 0,
   }
 
   componentDidMount() {
     // this.network().getYears()
   }
 
+  event = () => ({
+    changeMenu: index => {
+      this.setState({
+        activeIndex: index,
+      })
+    },
+  })
+
   network = () => ({
     getYears: async () => {},
   })
 
   render() {
-    const { menu } = this.state
+    const { menu, activeIndex } = this.state
     return (
       <div className="home-container">
         <div className="side-container">
-          <Sidebar menu={menu} />
+          <Sidebar
+            menu={menu}
+            activeIndex={activeIndex}
+            changeMenu={index => this.event().changeMenu(index)}
+          />
         </div>
         <div className="main-container">
           展示
