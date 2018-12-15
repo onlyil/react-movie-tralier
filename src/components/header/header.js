@@ -25,7 +25,7 @@ export default class Header extends Component {
   network = () => ({
     getCategories: async () => {
       let res = await Axios.get('/app/category')
-      console.log('分类', res.data)
+      // console.log('分类', res.data)
       this.setState({
         categories: res.data.list
       })

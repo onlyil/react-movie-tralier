@@ -5,6 +5,7 @@ import Sidebar from '@/components/sidebar/sidebar'
 import './home.scss'
 
 export default class home extends Component {
+
   state = {
     menu: [
       {
@@ -22,6 +23,7 @@ export default class home extends Component {
 
   componentDidMount() {
     // this.network().getYears()
+    // console.log(this.props)
   }
 
   event = () => ({
@@ -48,7 +50,7 @@ export default class home extends Component {
           />
         </div>
         <div className="main-container">
-          展示
+          <Link to="/front/movie/1">详情</Link>
         </div>
       </div>
     )
