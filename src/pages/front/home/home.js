@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Axios from 'axios'
 import Sidebar from '@/components/sidebar/sidebar'
 import './home.scss'
+import { Button } from 'antd'
 
 export default class home extends Component {
 
@@ -23,7 +24,7 @@ export default class home extends Component {
 
   componentDidMount() {
     // this.network().getYears()
-    // console.log(this.props)
+    console.log(this.props)
   }
 
   event = () => ({
@@ -50,7 +51,13 @@ export default class home extends Component {
           />
         </div>
         <div className="main-container">
-          <Link to="/front/movie/1">详情</Link>
+          <Link to="/front/movie/1">详情1</Link>
+          <br/>
+          <Button
+            type="primary"
+            onClick={() => this.props.history.push('/front/movie/2')}>
+            详情2
+          </Button>
         </div>
       </div>
     )
